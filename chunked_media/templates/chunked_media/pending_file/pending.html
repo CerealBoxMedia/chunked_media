@@ -1,0 +1,26 @@
+{% extends "wagtailadmin/base.html" %}
+{% load i18n %}
+{% block titletag %}Pending{% endblock %}
+{% block extra_js %}
+    {{ block.super }}
+{% endblock %}
+
+{% block content %}
+    {% trans "Media" as media_str %}
+    <header class="nice-padding">
+        <div class="row">
+            <div class="left">
+                <div class="col">
+                    <h1 class="icon icon-media">
+                    {{ media_str }}
+                    </h1>
+                    <p>Your media file is currently being processed.</p>
+                    <p>Return to the index page:</p>
+                    <a href="{% url 'chunked_media:index' %}">
+                        <button type="submit" class="button button-longrunning"><em>{% trans 'Return' %}</em><button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+{% endblock %}
